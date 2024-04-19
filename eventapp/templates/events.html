@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Grand Events 
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <h1 style="width: max-content; background-clip: text;color: transparent;" class="gradient-custom-2">Events</h1>
+    <div>
+        <div class="row" style="min-height: 50vh;">
+            {% for event in page_obj %}
+            <div class="col-md-6 col-lg-4 p-2 align-items-center">
+                <div class="card" style="align-self: center;">
+                    <img
+                        src="{{ event.thumbnail }}"
+                        class="card-img-top mx-auto"
+                        alt="{{ event.name }}"
+                        style="height: 20vh; object-fit: cover;"
+                    />
+
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">{{ event.name }}</h5>
+                        <p class="card-text">
+                          {{ event.desc }}
+                        </p>
+                    </div>
+
+                    <div class="text-sm text-secondary px-2 pb-2 d-flex justify-content-between align-items-center">
+                        <span>{{ event.date }}</span>
+                        <a href="{% url 'book_event' id=event.id %}" style="width: max-content;" class="btn btn-block gradient-custom-2 text-white">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="d-flex gap-4 p-4">
+            {% if page_obj.has_next %}
+                <a class="btn gradient-custom-2 text-white" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn gradient-custom-2 text-white" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+
+            <div class="flex-grow-1"></div>
+
+            {% if page_obj.has_previous %}
+                <a class="btn gradient-custom-2 text-white" href="?page=1">First</a>
+                <a class="btn gradient-custom-2 text-white" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

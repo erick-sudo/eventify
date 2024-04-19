@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Event Details {% endblock %} 
+
+{% block content %}
+
+<div>
+  {% if booking_state.event %}
+  <div class="container p-4 pt-5 pb-5">
+    <div class="row">
+      <div class="col-lg-6 d-flex">
+        <div class="flex-grow-1" style="height: 40vh;">
+          <img
+            src="{{ booking_state.event.thumbnail }}"
+            class="w-100 h-100 rounded-4"
+            alt="{{ event.name }}"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 p-4 pt-5 pb-5">
+        <h3 class="card-title" style="font-weight: bolder;">{{ booking_state.event.name }}</h3>
+        <p class="card-text mt-3 mb-4" style="max-width: 20rem;">{{ booking_state.event.desc }}</p>
+        <hr />
+        <div class="text-secondary">{{ booking_state.event.date }}</div>
+      </div>
+    </div>
+
+    {% if booking_state.posting %}
+    <div class="mt-4">
+      {% if booking_state.success %}
+      <div class="alert alert-success" role="alert">
+        {{ booking_state.message }}
+      </div>
+      {% else %}
+      <div class="alert alert-warning" role="alert">
+        {{ booking_state.message }}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <form
+      class=""
+      action="{% url 'book_event' id=booking_state.event.id %}"
+      method="post"
+    >
+      {% csrf_token %}
+
+      <div class="text-center pt-1 mb-5 mt-3 pb-1">
+        <input
+          value="Book Now"
+          type="submit"
+          class="btn btn-block fa-lg gradient-custom-2 mb-3 text-white"
+        />
+      </div>
+    </form>
+  </div>
+
+  {% else %}
+  <div
+    style="min-height: 50vh"
+    class="container mt-5 mb-5 rounded-4 d-flex align-items-center justify-content-center gradient-custom-2"
+  >
+    <div class="text-white">
+      <h2 style="font-weight: bolder;" class="">Sorry!</h2>
+      <h4>{{ booking_state.message }}</h4>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

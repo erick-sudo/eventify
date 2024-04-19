@@ -1,0 +1,122 @@
+[
+{
+    "model": "eventapp.event",
+    "pk": 1,
+    "fields": {
+      "name": "Summer Music Festival",
+      "desc": "Join us for a day of live music, food, and fun in the sun!",
+      "date": "2024-07-15",
+      "thumbnail": "https://cdn.pixabay.com/photo/2020/01/15/17/35/concert-4768496_1280.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 2,
+    "fields": {
+      "name": "Art Exhibition Gala",
+      "desc": "Discover stunning works of art from local and international artists.",
+      "date": "2024-08-05",
+      "thumbnail": "https://cdn.pixabay.com/photo/2023/12/05/15/26/exhibition-8431913_1280.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 3,
+    "fields": {
+      "name": "Tech Conference 2024",
+      "desc": "Explore the latest trends and innovations in technology and business.",
+      "date": "2024-09-20",
+      "thumbnail": "https://cdn.pixabay.com/photo/2015/01/08/18/11/laptops-593296_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 4,
+    "fields": {
+      "name": "Food Truck Rally",
+      "desc": "Savor delicious cuisines from diverse food trucks at our annual rally.",
+      "date": "2024-10-10",
+      "thumbnail": "https://cdn.pixabay.com/photo/2021/01/25/05/53/food-truck-5947363_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 5,
+    "fields": {
+      "name": "Fitness Expo",
+      "desc": "Get inspired and motivated with fitness workshops, demos, and more.",
+      "date": "2024-11-02",
+      "thumbnail": "https://cdn.pixabay.com/photo/2023/10/04/14/15/man-8293794_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 6,
+    "fields": {
+      "name": "Fashion Show Spectacular",
+      "desc": "Experience the glitz and glamour of high-fashion runway showcases.",
+      "date": "2024-12-08",
+      "thumbnail": "https://cdn.pixabay.com/photo/2016/10/16/23/33/fashion-show-1746590_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 7,
+    "fields": {
+      "name": "Startup Pitch Competition",
+      "desc": "Witness aspiring entrepreneurs pitch their innovative ideas to investors.",
+      "date": "2025-01-15",
+      "thumbnail": "https://cdn.pixabay.com/photo/2017/09/18/23/33/microphone-2763602_640.png"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 8,
+    "fields": {
+      "name": "Movie Night Under the Stars",
+      "desc": "Enjoy classic films and family-friendly entertainment under the night sky.",
+      "date": "2025-02-20",
+      "thumbnail": "https://cdn.pixabay.com/photo/2017/07/13/23/11/cinema-2502213_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 9,
+    "fields": {
+      "name": "Wellness Retreat",
+      "desc": "Rejuvenate your mind, body, and soul with holistic wellness activities.",
+      "date": "2025-03-12",
+      "thumbnail": "https://cdn.pixabay.com/photo/2016/11/14/03/17/women-1822476_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 10,
+    "fields": {
+      "name": "Community Cleanup Day",
+      "desc": "Join hands with fellow volunteers to clean and beautify our community.",
+      "date": "2025-04-25",
+      "thumbnail": "https://cdn.pixabay.com/photo/2016/07/13/11/32/photomontage-1514218_640.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 11,
+    "fields": {
+      "name": "Cooking Masterclass",
+      "desc": "Learn culinary secrets from top chefs and elevate your cooking skills.",
+      "date": "2025-05-18",
+      "thumbnail": "https://cdn.pixabay.com/photo/2016/03/27/21/34/restaurant-1284351_1280.jpg"
+    }
+},
+{
+    "model": "eventapp.event",
+    "pk": 12,
+    "fields": {
+      "name": "Gaming Tournament Extravaganza",
+      "desc": "Compete in thrilling video game tournaments and win exciting prizes.",
+      "date": "2025-06-30",
+      "thumbnail": "https://cdn.pixabay.com/photo/2016/08/01/16/53/volleyball-team-1561544_640.jpg"
+    }
+}
+]

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Bookings
+{% endblock %}
+
+{% block content %}
+
+<div class="container p-3"> <!-- Added mx-auto class for centering -->
+    <h1 style="width: max-content; background-clip: text;color: transparent;" class="gradient-custom-2">Booking History</h1><br>
+    
+    {% if bookings %}
+    <div class="row gap-4">
+        {% for booking in bookings %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ booking.event.name }}</h5>
+                <p class="card-text">{{ booking.event.desc }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="card-text">{{ booking.event.date }}</p>
+                    <form action="{% url 'cancel_booking' id=booking.id %}" method="post">
+                        {% csrf_token %}
+                        <input value="Cancel" type="submit" style="width: max-content;" class="btn btn-block gradient-custom-2 text-white" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h2 class="text-secondary pt-2 pb-4">No bookings available.</h2>
+    <a class="btn btn-block gradient-custom-2 text-white" href="{% url 'events' %}" >Get Started</a>
+    {% endif %}
+</div>
+
+{% endblock %}

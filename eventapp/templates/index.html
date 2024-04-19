@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section Carousel -->
+<div class="container mt-5 mb-5">
+  <div id="eventCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#eventCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#eventCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#eventCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div
+        style="height: 50vh"
+        class="carousel-item active"
+        data-bs-interval="10000"
+      >
+        <img
+          class="h-100 w-100 rounded-4"
+          style="object-fit: cover"
+          src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_640.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-white p-4 rounded-4" style="backdrop-filter: blur(20px);">
+            With our innovative platform, planning and organizing events has
+            never been easier
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 Recent Events -->
+<div class="container">
+  <div class="d-flex justify-content-between gap-4 border-bottom pb-1">
+    <h2 class="gradient-custom-2" style="background-clip: text;font-weight: bolder; width: max-content;color: transparent;">Recent Events</h2>
+    <a href="/events" class="nax-link nav-item">See More</a>
+  </div>
+  <div class="row">
+    <!-- Added 'justify-content-center' class to center the content -->
+    {% for event in events %}
+    <div class="col-md-6 col-lg-4 p-2 align-items-center">
+      <div
+      class="card"
+      style="align-self: center;"
+    >
+      <img
+        src="{{ event.thumbnail }}"
+        class="card-img-top mx-auto"
+        alt="{{ event.name }}"
+        style="height: 20vh; object-fit: cover;"
+      />
+      
+      <div class="card-body">
+        <h5 class="card-title text-secondary">{{ event.name }}</h5>
+        <p class="card-text">
+          {{ event.desc }}
+        </p>
+      </div>
+      <div class="text-sm text-secondary px-2 pb-2 d-flex justify-content-between align-items-center">
+        <span>{{ event.date }}</span>
+        <a href="{% url 'book_event' id=event.id %}" style="width: max-content;" class="btn btn-block gradient-custom-2 text-white">Book Now</a>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

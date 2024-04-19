@@ -1,0 +1,59 @@
+{% extends 'account_base.html' %} 
+
+{% load static %} 
+
+{% block title %} Reset Password {% endblock %} 
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+  <div class="panel panel-default mt-5">
+    <div class="panel-body" style="min-width: 20rem; max-width: 20rem;">
+      <div class="text-center">
+        <a href="/" class="mb-2">
+          <img src="{% static 'logo.png' %}" style="width: 185px" alt="logo" />
+        </a>
+
+        {% if message.success %}
+          {% if message.message is not None %}
+          <div class="alert alert-success" role="alert">
+            <p class="d-flex gap-2"><span><i class="fa-solid fa-circle-check"></i></span class="flex-grow">{{ message.message }}</p>
+          </div>
+          {% endif %}
+        {% endif %}
+
+        <div class="text-start" style="max-width: 20rem">
+          {% if not message.success %}
+          <p
+            style="background-color: rgba(241, 123, 123, 0.5)"
+            class="text-danger d-flex gap-2 p-4 rounded"
+          >
+            <span><i class="fa-solid fa-circle-exclamation"></i></span>
+            {{ message.message }}
+          </p>
+          {% endif %}
+        </div>
+
+        <div class="panel-body">
+          <form
+            action="{% url 'activate_account' uidb64=uidb64 token=token %}"
+            method="post"
+            style="max-width: 20rem; margin: auto"
+          >
+            {% csrf_token %}
+
+            <div class="text-center pt-1 mt-3 pb-1">
+              <input
+                value="Activate Account"
+                type="submit"
+                class="btn btn-block fa-lg gradient-custom-2 text-white"
+              />
+            </div>
+          </form>
+        </div>
+
+        <a href="{% url 'login' %}" style="text-transform: capitalize;" class="btn btn-outline-primary mt-3 d-flex gap-2 align-items-center"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
